@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useDispatch}  from "react-redux";
-import { addTodo } from "../../../redux-class-todo/src/features/todo/todoSlice";
+import { addTodo } from "../features/todo/todoSlice";
 
 export default function AddForm() {
     const [task, setTask] = useState("");

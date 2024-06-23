@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import AddForm from "./AddForm";
 import {useDispatch}  from "react-redux";
-import { deleteTodo } from "../../../redux-class-todo/src/features/todo/todoSlice";
-import { markAsDone } from "../../../redux-class-todo/src/features/todo/todoSlice";
+import { deleteTodo } from "../features/todo/todoSlice";
+import { markAsDone } from "../features/todo/todoSlice";
 
 export default function Todo() {
     const todos = useSelector((state) =>state.todos);
@@ -22,7 +22,9 @@ export default function Todo() {
             <ul>
                 {todos.map((todo) => (
                     <li key={todo.id}> 
-                      {todo.task}
+                      <span style= {todo.isDone ? { textDecorationLine: "line-through" } : {}}> 
+                        {todo.task} 
+                      </span>
                       <button onClick={ () => clickHandler(todo.id)}>Delete</button>
                       <button onClick = { () => markHandler(todo.id)}>Mark As Done</button>
                     </li>
